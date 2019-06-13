@@ -12,7 +12,7 @@ namespace SvelteMiddleware
     internal static class SvelteMiddleware
     {
         private const string LogCategoryName = "SvelteMiddleware";
-        internal const string DefaultRegex = "running at";
+        internal const string DefaultRegex = "Listening on";
 
         private static TimeSpan RegexMatchTimeout = TimeSpan.FromMinutes(5); // This is a development-time only feature, so a very long timeout is fine
 
@@ -73,29 +73,26 @@ namespace SvelteMiddleware
             var npmScriptRunner = new ScriptRunner(sourcePath, npmScriptName, $"--port {portNumber:0}", envVars, runner: runner);
             npmScriptRunner.AttachToLogger(logger);
 
-			// TODO: Figure out what sort of response we get and what we need to listen for...
-            //using (var stdErrReader = new EventedStreamStringReader(npmScriptRunner.StdErr))
-            //{
-            //    try
-            //    {
-            //        // Although the Svelte dev server may eventually tell us the URL it's listening on,
-            //        // it doesn't do so until it's finished compiling, and even then only if there were
-            //        // no compiler warnings. So instead of waiting for that, consider it ready as soon
-            //        // as it starts listening for requests.
-            //        await npmScriptRunner.StdOut.WaitForMatch(new Regex(!string.IsNullOrWhiteSpace(regex) ? regex : DefaultRegex, RegexOptions.None, RegexMatchTimeout));
-            //    }
-            //    catch (EndOfStreamException ex)
-            //    {
-            //        throw new InvalidOperationException(
-            //            $"The NPM script '{npmScriptName}' exited without indicating that the " +
-            //            $"server was listening for requests. The error output was: " +
-            //            $"{stdErrReader.ReadAsString()}", ex);
-            //    }
-            //}
+            using (var stdErrReader = new EventedStreamStringReader(npmScriptRunner.StdErr))
+            {
+                try
+                {
+                    // Although the Svelte dev server may eventually tell us the URL it's listening on,
+                    // it doesn't do so until it's finished compiling, and even then only if there were
+                    // no compiler warnings. So instead of waiting for that, consider it ready as soon
+                    // as it starts listening for requests.
+                    await npmScriptRunner.StdOut.WaitForMatch(new Regex(!string.IsNullOrWhiteSpace(regex) ? regex : DefaultRegex, RegexOptions.None, RegexMatchTimeout));
+                }
+                catch (EndOfStreamException ex)
+                {
+                    throw new InvalidOperationException(
+                        $"The NPM script '{npmScriptName}' exited without indicating that the " +
+                        $"server was listening for requests. The error output was: " +
+                        $"{stdErrReader.ReadAsString()}", ex);
+                }
+            }
 
             return portNumber;
         }
     }
-
-
 }
