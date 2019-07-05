@@ -1,15 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <Description>Helpers for building single-page applications on ASP.NET MVC Core using Vue Cli.</Description>
+    <Description>Helpers for building single-page applications on ASP.NET MVC Core using Svelte.</Description>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Title>VueCliMiddleware</Title>
+    <Title>SvelteMiddleware</Title>
     <VersionPrefix>2.2.0</VersionPrefix>
     <LangVersion>Latest</LangVersion>
-    <Authors>EEParker</Authors>
-    <RepositoryUrl>https://github.com/EEParker/aspnetcore-vueclimiddleware.git</RepositoryUrl>
-    <PackageProjectUrl>https://github.com/EEParker/aspnetcore-vueclimiddleware.git</PackageProjectUrl>
-    <PackageLicenseUrl>https://github.com/EEParker/aspnetcore-vueclimiddleware/blob/master/LICENSE.txt</PackageLicenseUrl>
+    <Authors>andrewjk</Authors>
+    <RepositoryUrl>https://github.com/andrewjk/aspnetcore-sveltemiddleware.git</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/andrewjk/aspnetcore-sveltemiddleware.git</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/andrewjk/aspnetcore-sveltemiddleware/blob/master/LICENSE.txt</PackageLicenseUrl>
   </PropertyGroup>
 
   <ItemGroup>
