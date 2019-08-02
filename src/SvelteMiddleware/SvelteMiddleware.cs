@@ -18,7 +18,10 @@ namespace SvelteMiddleware
 
         public static void Attach(
             ISpaBuilder spaBuilder,
-            string scriptName, int port = 0, ScriptRunnerType runner = ScriptRunnerType.Npm, string regex = DefaultRegex)
+            string scriptName,
+            int port = 0,
+            ScriptRunnerType runner = ScriptRunnerType.Npm,
+            string regex = DefaultRegex)
         {
             var sourcePath = spaBuilder.Options.SourcePath;
             if (string.IsNullOrEmpty(sourcePath))
@@ -58,10 +61,17 @@ namespace SvelteMiddleware
         }
 
         private static async Task<int> StartSvelteServerAsync(
-            string sourcePath, string npmScriptName, ILogger logger, int portNumber, ScriptRunnerType runner, string regex)
+            string sourcePath,
+            string npmScriptName,
+            ILogger logger,
+            int portNumber,
+            ScriptRunnerType runner,
+            string regex)
         {
             if (portNumber < 80)
+            {
                 portNumber = TcpPortFinder.FindAvailablePort();
+            }
             logger.LogInformation($"Starting server on port {portNumber}...");
 
             var envVars = new Dictionary<string, string>

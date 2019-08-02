@@ -5,7 +5,7 @@
 
     <IsPackable>false</IsPackable>
 
-    <RootNamespace>VueCliMiddleware</RootNamespace>
+    <RootNamespace>SvelteCliMiddleware</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

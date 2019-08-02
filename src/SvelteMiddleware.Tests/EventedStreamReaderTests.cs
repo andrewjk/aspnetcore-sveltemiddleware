@@ -12,7 +12,6 @@ namespace SvelteMiddleware.Tests
         [TestMethod]
         public async Task ReadChunks_MultipleNewLines_OnCompleteLineFiresEachNewline()
         {
-
             string testMessage = "this \nis \na \ntest \nof \nmultiple \nnewlines\n  trailing data";
             int numNewLines = testMessage.Split('\n').Length - 1;
             int chunksReceived = 0;

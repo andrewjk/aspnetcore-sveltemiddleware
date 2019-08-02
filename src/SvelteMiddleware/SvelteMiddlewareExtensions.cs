@@ -5,7 +5,7 @@ using System;
 namespace SvelteMiddleware
 {
     /// <summary>
-    /// Extension methods for enabling Vue development server middleware support.
+    /// Extension methods for enabling Svelte development server middleware support.
     /// </summary>
     public static class SvelteMiddlewareExtensions
     {
@@ -26,7 +26,7 @@ namespace SvelteMiddleware
             this ISpaBuilder spaBuilder,
             string npmScript,
             int port = 0,
-            ScriptRunnerType runner = ScriptRunnerType.Npm, 
+            ScriptRunnerType runner = ScriptRunnerType.Npm,
             string regex = SvelteMiddleware.DefaultRegex)
         {
             if (spaBuilder == null)
