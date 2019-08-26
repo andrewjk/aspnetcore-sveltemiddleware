@@ -85,15 +85,15 @@ namespace SvelteMiddleware
                 {
                     // NPM tasks commonly emit ANSI colors, but it wouldn't make sense to forward
                     // those to loggers (because a logger isn't necessarily any kind of terminal)
-                    logger.LogInformation(StripAnsiColors(line) + "\r\n");
+                    logger.LogInformation(StripAnsiColors(line).TrimEnd());
                 }
             };
 
             StdErr.OnReceivedLine += line =>
             {
-                if (!string.IsNullOrWhiteSpace(line))
+				if (!string.IsNullOrWhiteSpace(line))
                 {
-                    logger.LogError(StripAnsiColors(line + "\r\n"));
+                    logger.LogError(StripAnsiColors(line.TrimEnd()));
                 }
             };
 
@@ -110,8 +110,7 @@ namespace SvelteMiddleware
             };
         }
 
-        private static string StripAnsiColors(string line)
-            => AnsiColorRegex.Replace(line, string.Empty);
+        private static string StripAnsiColors(string line) => AnsiColorRegex.Replace(line, string.Empty);
 
         private static Process LaunchNodeProcess(ProcessStartInfo startInfo)
         {
