@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28010.2026
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29411.108
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SvelteMiddleware", "SvelteMiddleware\SvelteMiddleware.csproj", "{6EF79200-935A-4EBB-BB10-EB233A360210}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SvelteMiddleware", "SvelteMiddleware\SvelteMiddleware.csproj", "{12278997-EA83-4B3B-BCA1-9FFE199B73FD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SvelteMiddleware.Tests", "SvelteMiddleware.Tests\SvelteMiddleware.Tests.csproj", "{36DA789C-1C87-48A3-9A9E-804E9BA5C141}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SvelteMiddleware.Tests", "SvelteMiddleware.Tests\SvelteMiddleware.Tests.csproj", "{36DA789C-1C87-48A3-9A9E-804E9BA5C141}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,10 +13,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6EF79200-935A-4EBB-BB10-EB233A360210}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6EF79200-935A-4EBB-BB10-EB233A360210}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6EF79200-935A-4EBB-BB10-EB233A360210}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6EF79200-935A-4EBB-BB10-EB233A360210}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12278997-EA83-4B3B-BCA1-9FFE199B73FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12278997-EA83-4B3B-BCA1-9FFE199B73FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12278997-EA83-4B3B-BCA1-9FFE199B73FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12278997-EA83-4B3B-BCA1-9FFE199B73FD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{36DA789C-1C87-48A3-9A9E-804E9BA5C141}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{36DA789C-1C87-48A3-9A9E-804E9BA5C141}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{36DA789C-1C87-48A3-9A9E-804E9BA5C141}.Release|Any CPU.ActiveCfg = Release|Any CPU

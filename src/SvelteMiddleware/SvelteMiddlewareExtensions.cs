@@ -19,7 +19,7 @@ namespace SvelteMiddleware
         /// </summary>
         /// <param name="spaBuilder">The <see cref="ISpaBuilder"/>.</param>
         /// <param name="npmScript">The name of the script in your package.json file that launches the Svelte server.</param>
-        /// <param name="port">Specify vue cli server port number. If &lt; 80, uses random port. </param>
+        /// <param name="port">Specify Svelte server port number. If &lt; 80, uses random port. </param>
         /// <param name="runner">Specify the runner, Npm and Yarn are valid options. Yarn support is HIGHLY experimental.</param>
         /// <param name="regex">Specify a custom regex string to search for in the log indicating Svelte serve is complete.</param>
         public static void UseSvelte(

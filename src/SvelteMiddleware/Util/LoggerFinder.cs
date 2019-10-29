@@ -15,16 +15,26 @@ using System.Text.RegularExpressions;
 [assembly: System.Runtime.CompilerServices.InternalsVisibleTo("SvelteMiddleware.Tests")]
 namespace SvelteMiddleware
 {
-    internal static class LoggerFinder
-    {
-        public static ILogger GetOrCreateLogger(IApplicationBuilder appBuilder, string logCategoryName)
-        {
-            // If the DI system gives us a logger, use it. Otherwise, set up a default one.
-            var loggerFactory = appBuilder.ApplicationServices.GetService<ILoggerFactory>();
-            var logger = loggerFactory != null
-                ? loggerFactory.CreateLogger(logCategoryName)
-                : new ConsoleLogger(logCategoryName, null, false);
-            return logger;
-        }
-    }
+	internal static class LoggerFinder
+	{
+		public static ILogger GetOrCreateLogger(IApplicationBuilder appBuilder, string logCategoryName)
+		{
+			// If the DI system gives us a logger, use it. Otherwise, set up a default one.
+			var loggerFactory = appBuilder.ApplicationServices.GetService<ILoggerFactory>();
+			ILogger logger;
+			if (loggerFactory != null)
+			{
+				logger = loggerFactory.CreateLogger(logCategoryName);
+			}
+			else
+			{
+				using var newFactory = LoggerFactory.Create(builder =>
+				{
+					builder.AddConsole();
+				});
+				logger = newFactory.CreateLogger(logCategoryName);
+			}
+			return logger;
+		}
+	}
 }

@@ -14,7 +14,8 @@ namespace SvelteMiddleware
         private const string LogCategoryName = "SvelteMiddleware";
         internal const string DefaultRegex = "Listening on";
 
-        private static TimeSpan RegexMatchTimeout = TimeSpan.FromMinutes(5); // This is a development-time only feature, so a very long timeout is fine
+        // This is a development-time only feature, so a very long timeout is fine
+        private static readonly TimeSpan RegexMatchTimeout = TimeSpan.FromMinutes(5);
 
         public static void Attach(
             ISpaBuilder spaBuilder,
